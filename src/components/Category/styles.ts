@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     alignSelf: "flex-end",
     marginRight: 7,
-    borderRadius: 3
+    borderRadius: 3,
   },
   unchecked: {
     width: 10,
@@ -35,11 +35,15 @@ export const styles = StyleSheet.create({
     marginRight: 7,
     borderBottomColor: COLORS.secondary50,
     borderWidth: 2,
-    borderRadius: 3
+    borderRadius: 3,
   },
   title: {
-    fontFamily: FONTS.title500,
+    fontFamily: FONTS.title700,
     color: COLORS.heading,
     fontSize: 15,
+  },
+  iconWithCheck: {},
+  iconWithoutCheck: {
+    marginTop: 20,
   },
 });

@@ -8,9 +8,10 @@ import { Category } from "../Category";
 type Props = {
   selectedCategory: string;
   handleCategorySelect: (categoryId: string) => void;
+  enableCheck?: boolean
 };
 
-export function CategorySelect({ selectedCategory, handleCategorySelect }: Props) {
+export function CategorySelect({ selectedCategory, handleCategorySelect, enableCheck = false }: Props) {
   return (
     <ScrollView
       style={styles.container}
@@ -25,6 +26,7 @@ export function CategorySelect({ selectedCategory, handleCategorySelect }: Props
           key={category.id}
           checked={category.id === selectedCategory}
           onPress={() => handleCategorySelect(category.id)}
+          enableCheck={enableCheck}
         />
       ))}
     </ScrollView>

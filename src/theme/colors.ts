@@ -10,12 +10,18 @@ export default {
   secondary50: "#243189",
   secondary40: "#1D2766",
   secondary30: "#495BCC",
+  secondary20: "#121D33",
+  secondary15: "#121d3300",
 
   overlay: "rgba(0,0,0,0.7)",
   highlight: "#ABB1CC",
   heading: "#DDE3F0",
   line: "#991F36",
   on: "#32BD50",
+
+  online: "#32BD50",
+  absent: "#D07622",
+  unavaliable: "#E51C44",
 
   discord: "#7289da",
 };

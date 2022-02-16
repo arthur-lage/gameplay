@@ -11,6 +11,8 @@ import { CategorySelect } from "../../components/CategorySelect";
 import { FlatList } from "react-native-gesture-handler";
 import { Appointment } from "../../components/Appointment";
 import { categories } from "../../utils/categories";
+import { Background } from "../../components/Background";
+import { useNavigation } from "@react-navigation/native";
 
 export function Home() {
   const [category, setCategory] = useState("");
@@ -63,8 +65,15 @@ export function Home() {
     categoryId === category ? setCategory("") : setCategory(categoryId);
   }
 
+  function handleAppoinmentDetails () {
+    const navigation = useNavigation()
+
+    // @ts-ignore
+    navigation.navigate("AppointmentDetails")
+  }
+
   return (
-    <View style={styles.container}>
+    <Background>
       <View style={styles.header}>
         <Avatar imageUrl={"https://github.com/arthur-lage.png"} />
         <View style={styles.info}>
@@ -83,7 +92,7 @@ export function Home() {
           </TouchableOpacity>
         </View>
       </View>
-
+      
       <CategorySelect
         selectedCategory={category}
         handleCategorySelect={handleCategorySelect}
@@ -98,12 +107,12 @@ export function Home() {
         <FlatList
           data={appointments}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <Appointment key={item.id} data={item} />}
+          renderItem={({ item }) => <Appointment onPress={handleAppoinmentDetails} key={item.id} data={item} />}
           ItemSeparatorComponent={() => <View style={styles.divisor}></View>}
           showsVerticalScrollIndicator={false}
           style={styles.matches}
         />
       </View>
-    </View>
+    </Background>
   );
 }
